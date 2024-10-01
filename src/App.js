@@ -1,21 +1,24 @@
 import './App.css';
+import Employee from './components/Employee';
+import { useState } from 'react';
 
 function App() {
+  const [role, setRole] = useState();
+  const showEmployee = true;
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Hello, I'm React!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {showEmployee ? 
+        <>
+        <input type='text' onChange={(e)=>{
+          setRole(e.target.value);
+        }}/>
+          <Employee name="Caleb" role="CEO"/>
+          <Employee name="John" role="Intern"/>
+          <Employee name="Carl" role={role}/>
+        </>
+        :
+        <p>You don't have permission!</p>
+      }
     </div>
   );
 }
