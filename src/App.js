@@ -3,7 +3,6 @@ import Employee from './components/Employee';
 import { useState } from 'react';
 import {v4 as uuidv4} from 'uuid'
 import AddEmployee from './components/AddEmployee';
-import AddNote from './components/AddNote';
 
 
 function App() {
@@ -92,7 +91,6 @@ function App() {
           })}
           </div>
           <AddEmployee newEmployee={newEmployee} />
-          <AddNote />
         </>
         :
         <p>You don't have permission!</p>
