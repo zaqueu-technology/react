@@ -2,6 +2,8 @@ import './index.css';
 import Employee from './components/Employee';
 import { useState } from 'react';
 import {v4 as uuidv4} from 'uuid'
+import AddEmployee from './components/AddEmployee';
+import AddNote from './components/AddNote';
 
 
 function App() {
@@ -60,11 +62,21 @@ function App() {
     return;
   }
 
+  function newEmployee(name, role, img){
+    newEmployee = {
+      id: uuidv4(),
+      name: name,
+      role:role,
+      img: img
+    }
+    setEmployees([...employees, newEmployee])
+  }
+
   return (
     <div className="App">
       {showEmployee ? 
-        
-        <div className="flex flex-wrap justify-center">
+        <>
+          <div className="flex flex-wrap justify-center">
           {employees.map((employee) => {
             console.log(employee);
             return (
@@ -78,8 +90,10 @@ function App() {
               />
             )
           })}
-        </div>
-        
+          </div>
+          <AddEmployee newEmployee={newEmployee} />
+          <AddNote />
+        </>
         :
         <p>You don't have permission!</p>
       }
