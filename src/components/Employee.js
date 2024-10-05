@@ -1,4 +1,4 @@
-import EditEmployee from "./EditEmployee";
+
 
 export default function Employee(p){
   return (
@@ -17,7 +17,8 @@ export default function Employee(p){
             {p.role}
           </p>
         </div>
-        <EditEmployee name={p.name} role={p.role} id={p.id} updateEmployee = {p.updateEmployee}/>
+        
+        {p.editEmployee}
         
       </div>
     </div>
